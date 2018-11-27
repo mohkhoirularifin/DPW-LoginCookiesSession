@@ -186,8 +186,8 @@ function registrasi($data)
         return false;
     }
 
-    $password=md5($password);
-    // $password=password_hash($password, PASSWORD_DEFAULT);
+    // $password=md5($password);
+    $password=password_hash($password, PASSWORD_DEFAULT);
     var_dump($password);
 
     mysqli_query($conn, "INSERT INTO users VALUES ('', '$username', '$password')");
