@@ -1,5 +1,5 @@
 <?php
 
-setcookie('nama','dika');
+setcookie('nama','dika',time()+60);
 
 ?>
