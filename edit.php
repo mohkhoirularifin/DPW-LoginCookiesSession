@@ -68,7 +68,7 @@ if (!isset($_SESSION["login"]))
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="http://localhost/13/index.php">Daftar Mahasiswa</a>
+                <a class="navbar-brand" href="http://localhost/14/index.php">Daftar Mahasiswa</a>
             </div>
         
             <!-- Collect the nav links, forms, and other content for toggling -->
