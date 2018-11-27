@@ -1,4 +1,11 @@
 <?php
+session_start();
+
+if (isset($_SESSION["login"])) 
+{
+    header("Location:index.php");
+    exit;
+}
 require 'functions.php';
 
 if (isset($_POST["login"])) 
@@ -9,21 +16,15 @@ if (isset($_POST["login"]))
 
     $result=mysqli_query($conn, "SELECT * FROM user WHERE username='$username'");
 
-    // cek username
-    // mysqli_num_rows=untuk menghitung ada berapa baris yang dikembalikan oleh parameter
-    // kalau ada yang dikembalikan nilainya adalah 1 kalau enggak ada nilainya 0
-
     if (mysqli_num_rows($result)===1) 
     {
-        // var_dump($result);
-        // cek password
         $row=mysqli_fetch_assoc($result);
-        // var_dump($row);
-
-        // digunakan untuk mengecek sebuah String apakah samakah dengan hasilnya
-        // terdapat 2 parameter (password yang belum di acak, password yang sudah acak)
+        
         if (password_verify($password, $row["password"])) 
         {
+            // set session
+            $_SESSION["login"]=true;
+
             // redirect ke halaman index.php
             header("Location:index.php");
             exit;

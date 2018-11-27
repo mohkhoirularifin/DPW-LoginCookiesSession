@@ -1,4 +1,13 @@
 <?php
+session_start();
+
+if (!isset($_SESSION["login"])) 
+{
+    echo $_SESSION["login"];
+    header("Location:login.php");
+    exit;
+}
+
 require 'functions.php';
 $mahasiswa=query("SELECT * FROM mahasiswa");
 
@@ -40,6 +49,10 @@ if(isset($_POST["cari"]))
     </nav>
     
     <h1>Daftar Mahasiswa</h1>
+
+    <a href="logout.php">Logout</a> 
+    <br>
+
     <a href="tambah_data.php">Tambah Data Mahasiswa</a>
     <form action="" method="post">
     <!-- autofocus atribut pada html 5 yang digunakan untuk memberikan tanda pertama kali ke inputan pada saat page direload -->
